@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./chat_backend
+      dockerfile: Dockerfile
+    container_name: chat_backend
+    volumes:
+      - ./chat_backend:/app/backend
+    ports:
+      - "8000:8000"
+    image: nvidia/cuda:12.2.0-base-ubuntu22.04
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  frontend:
+    build:
+      context: ./chat_frontend
+      dockerfile: Dockerfile
+    container_name: chat_frontend
+    volumes:
+      - ./chat_frontend:/app/frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
