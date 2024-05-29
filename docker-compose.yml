@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./chat_backend
+      dockerfile: Dockerfile
+    container_name: chat_backend
+    volumes:
+      - ./chat_backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=chat_backend.settings
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  frontend:
+    build:
+      context: ./chat_frontend
+      dockerfile: Dockerfile
+    container_name: chat_frontend
+    volumes:
+      - ./chat_frontend:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
