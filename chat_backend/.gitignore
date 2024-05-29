@@ -1,0 +1,17 @@
+# Ignore log files and temp files
+*.log
+*.tmp
+
+# Ignore build outputs
+build/
+dist/
+
+# Ignore Python bytecode
+*.pyc
+__pycache__/
+
+# Ignore Django database
+*.sqlite3
+
+# Ignore environment variables
+.env
