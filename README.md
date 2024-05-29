@@ -44,7 +44,7 @@ npm install
 npm start
 ```
 
-### Step 4: Just use the product.
+#### Step 4: Just use the product.
 
 Visit http://localhost:3000/ to experience the product.
 
