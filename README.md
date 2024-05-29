@@ -1,2 +1,2 @@
 # Chat-Application
-Build a chat website with AI Text Generation based on the Meta-Llama-3-8B model provided by Meta that has been fine tuned by me.
+In this project, I built a chat website with AI Text Generation using the Meta-Llama-3-8B model provided by Meta and fine-tuned by myself.
